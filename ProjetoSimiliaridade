@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+
+    public class Relatorio
+    {
+
+        public int Campo1 { get; set; }
+        public int Campo3 { get; set; }
+        public int Campo5 { get; set; }
+        public string Campo2 { get; set; }
+        public string Campo4 { get; set; }
+        public string Campo6 { get; set; }
+
+
+    }
+
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Relatorio> lista = new List<Relatorio>{
+
+                new Relatorio {Campo1 =1, Campo2 = "A"},
+                new Relatorio {Campo1 =1, Campo2 = "B"},
+                new Relatorio {Campo1 =2, Campo2 = "C"},
+                new Relatorio {Campo1 =2, Campo2 = "D"},
+                new Relatorio {Campo1 =3, Campo2 = "E"},
+                new Relatorio {Campo1 =4, Campo2 = "F"},
+               
+
+            };
+            List<Relatorio> novaLista = RemoverLinha(lista);
+
+
+            Console.WriteLine(" Lista original ");
+            ImprimeLista(lista);
+
+            Console.WriteLine("\n");
+
+            Console.WriteLine(" Nova Lista ");
+            ImprimeLista(novaLista);
+
+        }
+        static List<Relatorio> RemoverLinha(List<Relatorio> lista) 
+        {
+            List<Relatorio> novaLista = new List<Relatorio>();
+
+            foreach (var item in lista) {
+                //verifica se ja existe um objeto semelhante
+              
+                bool valorEncontrado = novaLista.Exists(o => o.Campo1==item.Campo1);
+            
+            
+            //  adiciona na nova lista a primeira linha que está repetida
+                if (!valorEncontrado )
+                {
+                
+                    novaLista.Add(item);
+                
+                }
+            }
+
+            return novaLista;        
+        }
+
+        static void ImprimeLista(List<Relatorio> lista) {
+
+            foreach (var item in lista) {
+
+
+                Console.WriteLine(" Campo1:" + item.Campo1 + " Campo2:" + item.Campo2);
+               
+            
+            }
+        }
+
+    }
+}
