@@ -1,0 +1,23 @@
+ public static decimal CalcularCofins( decimal basecalculo, double percentual)
+        {
+            decimal PercentualCofins = 7.60m;
+            decimal CalcularValorCofins;
+
+            CalcularValorCofins = basecalculo * (PercentualCofins / 100);
+
+
+            decimal total = (CalcularValorCofins * (decimal)percentual) / 100;
+
+            return total;
+
+            
+        }
+ class Program
+    {
+       static void Main(string[] args)
+        {
+        decimal baseCalculo = 60055533.35m;// 694856.35m;
+            double percentual = 97;
+            Console.WriteLine(CalcularCofins(baseCalculo, percentual));
+         }
+     }
